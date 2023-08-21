@@ -1,6 +1,5 @@
-import * as bcrypt from 'bcrypt';
+import { Role } from '../../common/enums/rol.enum';
 import {
-  BeforeInsert,
   Column,
   DeleteDateColumn,
   Entity,
@@ -18,10 +17,10 @@ export class User {
   @Column({ unique: true, nullable: false })
   username: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, select: false })
   password: string;
 
-  @Column({ default: 'user' })
+  @Column({ default: Role.USER, enum: Role, type: 'enum' })
   role: string;
 
   // @BeforeInsert()
