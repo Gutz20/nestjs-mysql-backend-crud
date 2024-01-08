@@ -5,6 +5,7 @@ import { BreedsModule } from './breeds/breeds.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { FormsModule } from './forms/forms.module';
 
 @Module({
   imports: [
@@ -12,18 +13,18 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     TypeOrmModule.forRoot({
-      type: 'postgres', // mysql
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(process.env.POSTGRES_PORT), // 3307
-      username: process.env.POSTGRES_USERNAME, //user_crud
-      password: process.env.POSTGRES_PASSWORD, //root
-      database: process.env.POSTGRES_DATABASE,
+      type: 'mysql', // mysql
+      host: process.env.MYSQL_HOST,
+      port: parseInt(process.env.MYSQL_PORT), // 3307
+      username: process.env.MYSQL_USERNAME, //user_crud
+      password: process.env.MYSQL_PASSWORD, //root
+      database: process.env.MYSQL_DATABASE,
       autoLoadEntities: true,
       synchronize: true,
-      ssl: process.env.POSTGRES_SSL === 'true',
+      ssl: process.env.MYSQL_SSL === 'true',
       extra: {
         ssl:
-          process.env.POSTGRES_SSL === 'true'
+          process.env.MYSQL_SSL === 'true'
             ? { rejectUnauthorized: false }
             : null,
       },
@@ -32,6 +33,7 @@ import { ConfigModule } from '@nestjs/config';
     BreedsModule,
     UsersModule,
     AuthModule,
+    FormsModule
   ],
   controllers: [],
   providers: [],
