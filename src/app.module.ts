@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { FormsModule } from './forms/forms.module';
+import { LotesModule } from './lotes/lotes.module';
 
 @Module({
   imports: [
@@ -33,7 +34,8 @@ import { FormsModule } from './forms/forms.module';
     BreedsModule,
     UsersModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    LotesModule
   ],
   controllers: [],
   providers: [],

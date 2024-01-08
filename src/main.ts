@@ -15,7 +15,11 @@ async function bootstrap() {
     }),
   );
 
-  app.enableCors();
+  app.enableCors({
+    origin: ['http://localhost:5173'], // Cambiar dirección
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    credentials: true,
+  });
 
   await app.listen(parseInt(process.env.PORT) || 3000);
 }
