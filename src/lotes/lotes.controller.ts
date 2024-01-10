@@ -16,10 +16,7 @@ import { UpdateLoteDto } from './dto/update-lote.dto';
 export class LotesController {
   constructor(private readonly lotesService: LotesService) {}
 
-  @Post()
-  create(@Body() createLoteDto: CreateLoteDto) {
-    return this.lotesService.create(createLoteDto);
-  }
+  
 
   @Get()
   findAll() {
@@ -30,6 +27,17 @@ export class LotesController {
   findOne(@Param('id') id: number) {
     return this.lotesService.findOne(id);
   }
+
+  @Post()
+  create(@Body() createLoteDto: CreateLoteDto) {
+    return this.lotesService.create(createLoteDto);
+  }
+
+  @Post('/createMany')
+  createMany(@Body() createLoteDto: CreateLoteDto[]) {
+    return this.lotesService.createMany(createLoteDto);
+  }
+
 
   @Put(':id')
   update(@Param('id') id: number, @Body() updateLoteDto: UpdateLoteDto) {

@@ -16,6 +16,10 @@ export class LotesService {
     return await this.loteRepository.save(lote);
   }
 
+  async createMany(createLoteDto: CreateLoteDto[]) {
+    return this.loteRepository.save(createLoteDto);
+  }
+
   async findAll() {
     return await this.loteRepository.find();
   }
