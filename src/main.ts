@@ -17,7 +17,7 @@ async function bootstrap() {
 
   app.enableCors({
     origin: ['http://localhost:5173'], // Cambiar dirección
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
     credentials: true,
   });
 

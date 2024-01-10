@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { LotesService } from './lotes.service';
 import { CreateLoteDto } from './dto/create-lote.dto';
@@ -30,7 +31,7 @@ export class LotesController {
     return this.lotesService.findOne(id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: number, @Body() updateLoteDto: UpdateLoteDto) {
     return this.lotesService.update(id, updateLoteDto);
   }
