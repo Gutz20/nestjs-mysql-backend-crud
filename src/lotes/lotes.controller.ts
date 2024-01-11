@@ -11,12 +11,12 @@ import {
 import { LotesService } from './lotes.service';
 import { CreateLoteDto } from './dto/create-lote.dto';
 import { UpdateLoteDto } from './dto/update-lote.dto';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { Role } from 'src/common/enums/rol.enum';
 
 @Controller('lotes')
 export class LotesController {
   constructor(private readonly lotesService: LotesService) {}
-
-  
 
   @Get()
   findAll() {
@@ -37,7 +37,6 @@ export class LotesController {
   createMany(@Body() createLoteDto: CreateLoteDto[]) {
     return this.lotesService.createMany(createLoteDto);
   }
-
 
   @Put(':id')
   update(@Param('id') id: number, @Body() updateLoteDto: UpdateLoteDto) {

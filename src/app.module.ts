@@ -1,3 +1,4 @@
+import { ExportModule } from './export/export.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { CatsModule } from './cats/cats.module';
@@ -33,9 +34,10 @@ import { LotesModule } from './lotes/lotes.module';
     CatsModule,
     BreedsModule,
     UsersModule,
+    ExportModule,
     AuthModule,
     FormsModule,
-    LotesModule
+    LotesModule,
   ],
   controllers: [],
   providers: [],
