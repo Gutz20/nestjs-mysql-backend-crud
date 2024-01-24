@@ -16,11 +16,11 @@ async function bootstrap() {
   );
 
   app.enableCors({
-    origin: ['http://localhost:5173'], // Cambiar dirección
+    origin: ['https://www.soldemacacona.com'], // Cambiar dirección http://soldemacacona.com/login-admin
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
     credentials: true,
   });
 
-  await app.listen(parseInt(process.env.PORT) || 3000);
+  await app.listen(parseInt(process.env.PORT) ||3001);
 }
 bootstrap();
