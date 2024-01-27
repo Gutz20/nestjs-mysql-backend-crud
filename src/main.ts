@@ -3,9 +3,11 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
 
-  app.setGlobalPrefix('api/v1');
+  app.setGlobalPrefix('/slmc/');
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -15,12 +17,10 @@ async function bootstrap() {
     }),
   );
 
-  app.enableCors({
-    origin: ['https://www.soldemacacona.com'], // Cambiar dirección http://soldemacacona.com/login-admin
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
-    credentials: true,
-  });
+  // app.enableCors({
 
-  await app.listen(parseInt(process.env.PORT) ||3001);
+  // });
+
+  await app.listen(parseInt(process.env.PORT) || 4000);
 }
 bootstrap();
