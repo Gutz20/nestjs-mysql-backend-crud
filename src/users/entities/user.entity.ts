@@ -1,4 +1,3 @@
-import { Role } from '../../common/enums/rol.enum';
 import {
   Column,
   DeleteDateColumn,
@@ -19,10 +18,7 @@ export class User {
 
   @Column({ nullable: false, select: false })
   password: string;
-
-  @Column({ default: Role.USER, enum: Role, type: 'enum' })
-  role: string;
-
+  
   // @BeforeInsert()
   // async hashPassword() {
   //   this.password = await bcrypt.hash(this.password, 10);

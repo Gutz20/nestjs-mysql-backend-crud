@@ -4,10 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
-import { Auth } from 'src/auth/decorators/auth.decorator';
-import { Role } from 'src/common/enums/rol.enum';
 
-@Auth(Role.ADMIN)
 @Injectable()
 export class UsersService {
   constructor(
@@ -33,7 +30,7 @@ export class UsersService {
   async findByEmailWithPassword(email: string) {
     return this.userRepository.findOne({
       where: { email },
-      select: ['id', 'username', 'email', 'password', 'role'],
+      select: ['id', 'username', 'email', 'password'],
     });
   }
 

@@ -1,10 +1,6 @@
-import { ExportModule } from './export/export.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
-import { CatsModule } from './cats/cats.module';
-import { BreedsModule } from './breeds/breeds.module';
 import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { FormsModule } from './forms/forms.module';
 import { LotesModule } from './lotes/lotes.module';
@@ -31,11 +27,7 @@ import { LotesModule } from './lotes/lotes.module';
             : null,
       },
     }),
-    CatsModule,
-    BreedsModule,
     UsersModule,
-    ExportModule,
-    AuthModule,
     FormsModule,
     LotesModule,
   ],
